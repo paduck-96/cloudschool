@@ -47,3 +47,18 @@
    데이터의 모양 일정 X => Map, NoSQL 등
 7. 반정형 데이터
    비정형이지만 정형으로 만들 수 있음 => xml, json 등
+
+\*소스 코드 버전 관리\*
+
+1. 형상 관리(configuration management)
+   변경 사항 관리
+   소스 코드 뿐 아니라 문서 등 개발에 사용되는 모든 것 관리
+2. 소스 코드 버전 관리
+   git => 가장 대중적인 소스 코드 버전 관리
+   github => git을 활용하여 소스 코드 버전 관리를 원격 저장소에서 가능하게 할 수 있는 서비스
+
+=> branch : 작은 저장소
+commit : 로컬에 반영
+push : 서버에 반영
+clone : 복제본 가져오기(git clone url)
+pull : 변경된 내용 가져오기(git pull branch)
