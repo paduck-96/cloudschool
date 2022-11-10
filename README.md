@@ -3,12 +3,13 @@
 카카오 클라우드 스쿨 학습
 /- 네트워크에 대한 학습, 아키텍처에 대한 학습
 
-1. 프론트엔드 학습
-   Day-1 : html과 html 태그에 관한 학습
-   Day-2 : 영역(div/span/iframe)과 css에 관한 학습
-   Day-3 : 반응형 웹(media query, flex, grid)과
+## 프론트엔드 학습
 
-\*클라이언트-서버 앱 제작 방법\*
+Day-1 : html과 html 태그에 관한 학습
+Day-2 : 영역(div/span/iframe)과 css에 관한 학습
+Day-3 : 반응형 웹(media query, flex, grid)과
+
+## 클라이언트-서버 앱 제작 방법
 
 1. 클라이언트 --요청--> 서버
    서버 --템플릿 엔진으로 뷰 화면 전송-->클라이언트
@@ -23,14 +24,14 @@
       자바스크립트 객체 표현법
       알아보기 어려우나 용량 작음
 
-\*프로그래밍 언어 실행 방식\*
+## 프로그래밍 언어 실행 방식
 
 1. 컴파일러
    소스 코드 전체 번역 후 실행 => C, JAVA 등
 2. 인터프리터
    줄 단위로 번역 후 실행 => JS, Python 등
 
-\*데이터의 분류\*
+## 데이터의 분류
 
 1. Immutable Data
    변경 불가능한 데이터
@@ -48,7 +49,7 @@
 7. 반정형 데이터
    비정형이지만 정형으로 만들 수 있음 => xml, json 등
 
-\*소스 코드 버전 관리\*
+## 소스 코드 버전 관리
 
 1. 형상 관리(configuration management)
    변경 사항 관리
@@ -63,7 +64,7 @@ push : 서버에 반영
 clone : 복제본 가져오기(git clone url)
 pull : 변경된 내용 가져오기(git pull branch)
 
-\*산술 비트 연산자의 사용\*
+## 산술 비트 연산자의 사용
 
 1. ~
    색상 반전 등 그래픽 작업할 때 사용
@@ -77,7 +78,8 @@ pull : 변경된 내용 가져오기(git pull branch)
    삭제할 때 사용
    그래픽 작업 시, 이미 그린 선 위에 그대로 ^를 통해 선을 다시 그리면 전부 1이 흰색이기 때문에 지워짐
 
-\*Data 분류\*
+## Data 분류
+
 Value 타입 : 변수의 데이터 자체를 보관
 Reference 타입 : 변수의 데이터의 참조를 보관
 --->
@@ -86,7 +88,7 @@ Vector => 변수가 대표하는 곳의 참조
 --->
 https://dmitripavlutin.com/value-vs-reference-javascript/
 
-\*선언과 저장\*
+## 선언과 저장
 
 <pre>
 호출스택(큐) - 운영체제 소유
@@ -121,3 +123,62 @@ obj는 스택 / name과 getName은 힙 영역 / getName은 리터럴 영역을 �
 --->
 함수와 메서드의 차이는 호출자 여부
 =>결국 메서드는 보이지 않지만, 객체의 참조가 매개변수의 첫 자리
+
+## String 활용의 중요점
+
+<pre>
+         (Front End)                                              (Back End)
+            client                             connect server    application server         data server
+                                                   (연결)              (일)                    (저장)
+
+USER ==>   Browser            =request=>        (B/A)Web server
+         Application         <=response=        (A)Socket server                                          
+   (인스톨/다운로드의 문제)  <=traffic(비용)=>
+   (플러그인을 통해 가능하게끔)                                                            |-File Server
+   (etc electron)                                                                         |-Data Server -RDBMS
+                                                                                               -NoSQL
+                                                                                               -분산파일시스템(하둡)
+</pre>
+
+결국, 검증은 클라이언트와 서버 모두에서 이루어져야 한다.
+그러나, 비용 발생의 문제가 있기 때문에 클라이언트 측에서 검증 작업이 경제적으로 이득이다.
+입력이 가능한 것은 문자와 파일 밖에 없고, 파일의 내용물을 검사(전체 읽기)는 비효율적
+파일 => 존재여부, 크기, 종류 등...
+문자 => String, RegExp로 검증
+
+##
+
+List  
+데이터를 연속적으로 저장
+
+Linked List  
+논리적으로 연속  
+다음 주소만 기억하면 중간 끊어질 경우 연결 손실  
+그 앞도 기억하는 Double Linked List  
+이 상황에서 시작과 끝점을 기억하기 위해  
+H(bof)와 T(eof)가 있다
+
+Array(배열)  
+입력한 순서대로 연속해서 저장  
+크기가 고정
+
+Array list(Vector)  
+크기가 변할 수 있는 배열  
+Capacity 와 size가 있음
+
+Queue(FIFO)  
+처음에 데이터를 추가하고  
+처음에 삽입한 데이터를 제거
+
+Deck  
+양 쪽에서 삽입 삭제
+
+## MSA
+
+Data center의 1원화 => 단일 장애화 발생 가능성 증대  
+이를 해결하기 위한 분산 => 마이크로 서비스  
+이 과정을 그리드, destribution  
+초창기에는 이렇게 분산된 데이터를 모으고 프로세싱 진행  
+시간 소요 굉장히 증대  
+현재는 마이크로 서비스에서 처리까지 진행하고  
+결과를 모은다
